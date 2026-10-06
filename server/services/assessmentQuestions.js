@@ -1,0 +1,271 @@
+const questionsBank = {
+  Python: [
+    {
+      id: 'py-1',
+      question: 'What is the correct syntax to output "Hello World" in Python?',
+      options: ['echo "Hello World"', 'print("Hello World")', 'p("Hello World")', 'System.out.println("Hello World")'],
+      correctAnswer: 1,
+      explanation: 'In Python, the built-in print() function is used to output data to the console.',
+    },
+    {
+      id: 'py-2',
+      question: 'Which of the following data types is immutable in Python?',
+      options: ['List', 'Dictionary', 'Set', 'Tuple'],
+      correctAnswer: 3,
+      explanation: 'Tuples are immutable sequences; once created, their elements cannot be changed, added, or removed.',
+    },
+    {
+      id: 'py-3',
+      question: 'What is the output of `type([])`?',
+      options: ["<class 'list'>", "<class 'array'>", "<class 'tuple'>", "<class 'object'>"],
+      correctAnswer: 0,
+      explanation: '`[]` defines an empty list, so its type is list.',
+    },
+    {
+      id: 'py-4',
+      question: 'Which keyword is used to create a function in Python?',
+      options: ['function', 'func', 'def', 'define'],
+      correctAnswer: 2,
+      explanation: 'The `def` keyword introduces a function definition in Python.',
+    },
+    {
+      id: 'py-5',
+      question: 'What will `[1, 2, 3] * 2` evaluate to?',
+      options: ['[2, 4, 6]', '[1, 2, 3, 1, 2, 3]', 'Error: Invalid operation', '[[1, 2, 3], [1, 2, 3]]'],
+      correctAnswer: 1,
+      explanation: 'Multiplying a list by an integer n repeats the list contents n times.',
+    },
+  ],
+
+  JavaScript: [
+    {
+      id: 'js-1',
+      question: 'Which statement accurately describes the difference between `let` and `var`?',
+      options: [
+        'let is function-scoped, var is block-scoped',
+        'var is block-scoped, let is function-scoped',
+        'let is block-scoped, var is function-scoped',
+        'Both have identical scoping rules',
+      ],
+      correctAnswer: 2,
+      explanation: 'Variables declared with let and const have block scope, whereas var declarations have function or global scope.',
+    },
+    {
+      id: 'js-2',
+      question: 'What is the output of `typeof null` in JavaScript?',
+      options: ['"null"', '"undefined"', '"object"', '"boolean"'],
+      correctAnswer: 2,
+      explanation: 'In JavaScript, `typeof null` returns "object", which is a well-known legacy behavior in the ECMAScript spec.',
+    },
+    {
+      id: 'js-3',
+      question: 'Which method creates a new array with all elements that pass a test implemented by the provided function?',
+      options: ['map()', 'filter()', 'forEach()', 'reduce()'],
+      correctAnswer: 1,
+      explanation: 'Array.prototype.filter() returns a shallow copy containing only elements that satisfy the predicate.',
+    },
+    {
+      id: 'js-4',
+      question: 'What does the `===` operator do?',
+      options: [
+        'Assigns value with strict type conversion',
+        'Compares equality with type coercion',
+        'Compares equality without type coercion (strict equality)',
+        'Performs reference comparison only',
+      ],
+      correctAnswer: 2,
+      explanation: 'The strict equality operator (===) checks whether two values are equal without performing implicit type conversion.',
+    },
+    {
+      id: 'js-5',
+      question: 'What is the result of `Promise.resolve(5)`?',
+      options: ['5', 'A rejected promise with value 5', 'A pending promise', 'A fulfilled promise with value 5'],
+      correctAnswer: 3,
+      explanation: 'Promise.resolve() returns a Promise object that is resolved/fulfilled with the given value.',
+    },
+  ],
+
+  React: [
+    {
+      id: 'react-1',
+      question: 'Which hook is used to manage local state within a functional React component?',
+      options: ['useEffect', 'useMemo', 'useState', 'useRef'],
+      correctAnswer: 2,
+      explanation: 'useState is the primary React Hook for managing state in functional components.',
+    },
+    {
+      id: 'react-2',
+      question: 'When does the effect function in `useEffect(fn, [])` execute?',
+      options: [
+        'On every render',
+        'Only once when the component mounts',
+        'When the component unmounts only',
+        'Every time any state changes',
+      ],
+      correctAnswer: 1,
+      explanation: 'An empty dependency array [] tells React that your effect doesn’t depend on any values from props or state, so it runs once on mount.',
+    },
+    {
+      id: 'react-3',
+      question: 'Why should keys be unique when rendering lists in React?',
+      options: [
+        'To style list elements with CSS',
+        'To help React identify which items have changed, been added, or removed during reconciliation',
+        'To enforce sequential order in the DOM',
+        'Keys are optional and have no performance impact',
+      ],
+      correctAnswer: 1,
+      explanation: 'Keys give elements a stable identity and allow React to match DOM elements efficiently during reconciliation.',
+    },
+    {
+      id: 'react-4',
+      question: 'What is the purpose of React Context API?',
+      options: [
+        'Directly manipulate DOM nodes',
+        'Share state and pass data deeply through the component tree without prop drilling',
+        'Handle server-side routing',
+        'Compile JSX to machine code',
+      ],
+      correctAnswer: 1,
+      explanation: 'React Context provides a way to pass data through the component tree without having to pass props down manually at every level.',
+    },
+    {
+      id: 'react-5',
+      question: 'What does `useMemo` do in React?',
+      options: [
+        'Caches an expensive computed value between renders',
+        'Caches a callback function definition',
+        'Creates a mutable ref object',
+        'Triggers an asynchronous side effect',
+      ],
+      correctAnswer: 0,
+      explanation: 'useMemo returns a memoized value, recalculating it only when one of the dependencies has changed.',
+    },
+  ],
+
+  SQL: [
+    {
+      id: 'sql-1',
+      question: 'Which SQL clause is used to filter rows before any groupings are applied?',
+      options: ['HAVING', 'GROUP BY', 'WHERE', 'ORDER BY'],
+      correctAnswer: 2,
+      explanation: 'The WHERE clause filters individual rows before grouping, while HAVING filters aggregated groups.',
+    },
+    {
+      id: 'sql-2',
+      question: 'What is the difference between INNER JOIN and LEFT JOIN?',
+      options: [
+        'INNER JOIN returns all rows from left table; LEFT JOIN returns matching rows only',
+        'INNER JOIN returns matching rows from both tables; LEFT JOIN returns all rows from left table plus matched rows from right',
+        'LEFT JOIN only works on numeric primary keys',
+        'They are identical in modern SQL engines',
+      ],
+      correctAnswer: 1,
+      explanation: 'LEFT JOIN returns all records from the left table and the matched records from the right table (with NULLs for unmatched).',
+    },
+    {
+      id: 'sql-3',
+      question: 'Which constraint ensures that all values in a column are unique?',
+      options: ['PRIMARY KEY only', 'FOREIGN KEY', 'UNIQUE', 'NOT NULL'],
+      correctAnswer: 2,
+      explanation: 'The UNIQUE constraint ensures that all values in a specified column or set of columns are distinct.',
+    },
+    {
+      id: 'sql-4',
+      question: 'Which SQL command is used to remove a table and its structure from a database?',
+      options: ['DELETE TABLE', 'TRUNCATE TABLE', 'REMOVE TABLE', 'DROP TABLE'],
+      correctAnswer: 3,
+      explanation: 'DROP TABLE removes the entire table definition along with all its data, indexes, and constraints.',
+    },
+    {
+      id: 'sql-5',
+      question: 'What does the ACID property "Atomicity" guarantee?',
+      options: [
+        'Transactions execute concurrently without interference',
+        'All operations in a transaction succeed completely or none take effect',
+        'Data remains valid according to defined rules',
+        'Committed data survives system crashes',
+      ],
+      correctAnswer: 1,
+      explanation: 'Atomicity ensures that a transaction is treated as a single, indivisible unit of work (all-or-nothing).',
+    },
+  ],
+
+  Java: [
+    {
+      id: 'java-1',
+      question: 'Which concept of OOP allows one class to acquire properties and behavior from another class?',
+      options: ['Polymorphism', 'Encapsulation', 'Inheritance', 'Abstraction'],
+      correctAnswer: 2,
+      explanation: 'Inheritance enables a subclass to inherit the fields and methods of a superclass.',
+    },
+    {
+      id: 'java-2',
+      question: 'What is the size of an `int` primitive in Java?',
+      options: ['16 bits (2 bytes)', '32 bits (4 bytes)', '64 bits (8 bytes)', 'Depends on the CPU architecture'],
+      correctAnswer: 1,
+      explanation: 'In Java, an int is strictly 32 bits (4 bytes) signed two’s complement integer across all platforms.',
+    },
+    {
+      id: 'java-3',
+      question: 'Which collection class implements a resizable array in Java?',
+      options: ['LinkedList', 'ArrayList', 'HashSet', 'TreeMap'],
+      correctAnswer: 1,
+      explanation: 'ArrayList implements the List interface backed by a dynamically resizing array.',
+    },
+    {
+      id: 'java-4',
+      question: 'What is the default value of an uninitialized boolean instance variable in Java?',
+      options: ['true', 'false', 'null', '0'],
+      correctAnswer: 1,
+      explanation: 'Instance variables of type boolean are initialized to false by default.',
+    },
+    {
+      id: 'java-5',
+      question: 'Which keyword prevents a class from being subclassed in Java?',
+      options: ['static', 'abstract', 'final', 'sealed'],
+      correctAnswer: 2,
+      explanation: 'A final class cannot be extended by any other class.',
+    },
+  ],
+
+  'Data Structures': [
+    {
+      id: 'ds-1',
+      question: 'What is the average time complexity of searching an element in a balanced Binary Search Tree (AVL / Red-Black)?',
+      options: ['O(1)', 'O(log n)', 'O(n)', 'O(n log n)'],
+      correctAnswer: 1,
+      explanation: 'In a self-balancing binary search tree, search time is proportional to height, which is bounded by O(log n).',
+    },
+    {
+      id: 'ds-2',
+      question: 'Which data structure operates on a First-In-First-Out (FIFO) principle?',
+      options: ['Stack', 'Queue', 'Heap', 'Tree'],
+      correctAnswer: 1,
+      explanation: 'A Queue works on the FIFO principle (first element inserted is the first element removed).',
+    },
+    {
+      id: 'ds-3',
+      question: 'What is the worst-case time complexity of QuickSort?',
+      options: ['O(n)', 'O(n log n)', 'O(n^2)', 'O(2^n)'],
+      correctAnswer: 2,
+      explanation: 'QuickSort has a worst-case time complexity of O(n^2) when the pivot partitioning is severely unbalanced.',
+    },
+    {
+      id: 'ds-4',
+      question: 'Which data structure is typically used to implement Breadth-First Search (BFS) in a graph?',
+      options: ['Stack', 'Queue', 'Priority Queue', 'Disjoint Set'],
+      correctAnswer: 1,
+      explanation: 'BFS traverses level by level, utilizing a Queue to maintain discovered vertices.',
+    },
+    {
+      id: 'ds-5',
+      question: 'What is the expected average lookup time for an element in a Hash Table with good hash distribution?',
+      options: ['O(1)', 'O(log n)', 'O(n)', 'O(n^2)'],
+      correctAnswer: 0,
+      explanation: 'With a good hash function and appropriate load factor, average hash table lookups take O(1) constant time.',
+    },
+  ],
+};
+
+module.exports = questionsBank;
